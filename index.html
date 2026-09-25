@@ -4,66 +4,210 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="台灣金鑰匙 Les Clefs d'Or Taiwan 官方網站。認識台灣金鑰匙、會員、服務理念與組織動態。">
+  <meta name="theme-color" content="#0b2342">
   <title>台灣金鑰匙｜Les Clefs d'Or Taiwan</title>
   <style>
     :root{
-      --ink:#17221f; --muted:#63706c; --gold:#b08a45; --cream:#f5f1e8; --paper:#fbfaf7; --line:#ded9cf;
+      --navy:#0b2342;
+      --navy-2:#12365f;
+      --navy-3:#071a31;
+      --gold:#c8a45d;
+      --gold-soft:#dfca94;
+      --ink:#152438;
+      --muted:#647387;
+      --paper:#ffffff;
+      --mist:#f4f7fa;
+      --line:#dbe2ea;
       --serif: Georgia, 'Times New Roman', 'Noto Serif TC', serif;
       --sans: Arial, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      --shadow:0 18px 45px rgba(7,26,49,.12);
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);line-height:1.75}
-    a{color:inherit;text-decoration:none} .container{width:min(1160px,92vw);margin:auto}
-    header{position:fixed;inset:0 0 auto;z-index:20;background:rgba(251,250,247,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(222,217,207,.7)}
-    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:14px;font-family:var(--serif);letter-spacing:.12em}
-    .mark{width:38px;height:38px;border:1.5px solid var(--gold);display:grid;place-items:center;border-radius:50%;color:var(--gold);font-size:16px}
-    .brand strong{font-size:15px;display:block;letter-spacing:.12em}.brand span{font-size:11px;color:var(--muted);letter-spacing:.18em}
-    nav{display:flex;gap:26px;font-size:14px;color:#2e3936} nav a:hover{color:var(--gold)}
-    .hero{padding:170px 0 120px;background:linear-gradient(135deg,#f5f1e8 0%,#fbfaf7 52%,#edf0ec 100%);min-height:88vh;display:grid;align-items:center}
-    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
-    .kicker{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-    h1{font-family:var(--serif);font-weight:500;font-size:clamp(48px,7vw,84px);line-height:1.05;margin:0 0 22px;letter-spacing:.02em}
-    .lead{font-size:19px;color:#45514e;max-width:620px;margin:0 0 34px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:12px 22px;border:1px solid var(--ink);font-size:13px;letter-spacing:.08em}.btn.primary{background:var(--ink);color:white}.btn:hover{opacity:.88}
-    .hero-card{aspect-ratio:4/5;background:radial-gradient(circle at 40% 35%,#d8c39a 0 3%,transparent 4%),radial-gradient(circle at 65% 55%,#c9b17e 0 2%,transparent 3%),linear-gradient(145deg,#20302c,#111916);position:relative;overflow:hidden;box-shadow:0 20px 50px rgba(25,33,30,.16)}
-    .hero-card:before{content:'';position:absolute;inset:18%;border:1px solid rgba(224,206,161,.45);transform:rotate(45deg)}
-    .hero-card:after{content:'LES CLEFS D\'OR\A TAIWAN';white-space:pre;position:absolute;left:11%;bottom:10%;color:#e4d8bd;font-family:var(--serif);font-size:18px;line-height:1.35;letter-spacing:.22em}
-    section{padding:105px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:48px}.eyebrow{font-size:11px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase}.section-title{font-family:var(--serif);font-size:42px;font-weight:500;margin:8px 0 0}.section-copy{max-width:520px;color:var(--muted)}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:56px}.panel{border-top:1px solid var(--line);padding-top:25px}.panel h3{font-family:var(--serif);font-size:24px;font-weight:500;margin:0 0 12px}
-    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.principle{padding:28px;border:1px solid var(--line);background:#fff}.num{color:var(--gold);font-family:var(--serif);font-size:28px}.principle h3{font-size:17px;margin:8px 0}.principle p{color:var(--muted);font-size:14px;margin:0}
-    .members{background:var(--ink);color:#f6f4ee}.members .section-copy{color:#bcc5c1}.member-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.member{padding:26px;border:1px solid rgba(255,255,255,.18);min-height:200px;display:flex;flex-direction:column;justify-content:flex-end}.member .avatar{height:72px;width:72px;border-radius:50%;border:1px solid rgba(255,255,255,.25);margin-bottom:auto;display:grid;place-items:center;color:#dbc693}.member small{color:#a9b4af;letter-spacing:.08em}.member strong{font-family:var(--serif);font-size:19px;font-weight:500;margin-top:5px}
-    .news{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.news article{background:white;border:1px solid var(--line);padding:28px;min-height:220px}.date{font-size:12px;color:var(--gold);letter-spacing:.08em}.news h3{font-family:var(--serif);font-size:22px;font-weight:500;line-height:1.35}.news p{color:var(--muted);font-size:14px}
-    .contact{background:var(--cream)} .contact-box{display:grid;grid-template-columns:1fr 1fr;gap:50px}.contact h2{font-family:var(--serif);font-size:44px;font-weight:500;margin:8px 0 20px}
-    footer{padding:35px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.footer-row{display:flex;justify-content:space-between;gap:20px}
-    @media(max-width:900px){nav{display:none}.hero-grid,.split,.contact-box{grid-template-columns:1fr}.hero-card{max-width:520px;width:100%;margin:auto}.principles{grid-template-columns:1fr}.member-grid{grid-template-columns:repeat(2,1fr)}.news{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.nav{height:68px}.hero{padding-top:125px}.section-title,.contact h2{font-size:34px}.member-grid,.news{grid-template-columns:1fr}.hero-card{max-width:none}}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1180px,92vw);margin:auto}
+    header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(219,226,234,.9)}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:14px;font-family:var(--serif)}
+    .mark{width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:17px;background:#fff}
+    .brand strong{display:block;font-size:15px;letter-spacing:.16em;color:var(--navy)}
+    .brand span{display:block;font-size:10px;letter-spacing:.22em;color:#7d8792;margin-top:2px}
+    nav{display:flex;gap:28px;font-size:14px;color:#324156}
+    nav a{position:relative;padding:8px 0}
+    nav a:after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:.25s}
+    nav a:hover{color:var(--navy)} nav a:hover:after{right:0}
+
+    .hero{min-height:100vh;padding:150px 0 95px;background:linear-gradient(135deg,var(--navy-3) 0%,var(--navy) 52%,var(--navy-2) 100%);color:white;position:relative;overflow:hidden}
+    .hero:before{content:'';position:absolute;width:620px;height:620px;border:1px solid rgba(223,202,148,.18);transform:rotate(45deg);right:-220px;top:80px}
+    .hero:after{content:'';position:absolute;width:360px;height:360px;border:1px solid rgba(223,202,148,.12);transform:rotate(45deg);right:-70px;top:200px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:80px;align-items:center;position:relative;z-index:1}
+    .kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:20px}
+    h1{font-family:var(--serif);font-weight:500;font-size:clamp(48px,6.5vw,82px);line-height:1.08;margin:0 0 24px;letter-spacing:.02em}
+    .lead{font-size:18px;color:#d7e0e9;max-width:660px;margin:0 0 36px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 24px;border:1px solid rgba(255,255,255,.55);font-size:13px;letter-spacing:.1em;color:white;transition:.25s}
+    .btn.primary{background:var(--gold);border-color:var(--gold);color:var(--navy-3)}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-visual{min-height:560px;display:grid;place-items:center;position:relative}
+    .seal{width:min(470px,88%);aspect-ratio:1/1.18;border:1px solid rgba(223,202,148,.42);position:relative;display:grid;place-items:center}
+    .seal:before,.seal:after{content:'';position:absolute;border:1px solid rgba(223,202,148,.22);inset:11%;transform:rotate(45deg)}
+    .seal:after{inset:26%;transform:rotate(45deg)}
+    .seal-inner{width:72%;height:72%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid rgba(223,202,148,.28);background:rgba(5,20,37,.18)}
+    .crossed{font-size:54px;line-height:1;color:var(--gold-soft);letter-spacing:-.32em;margin-left:-.32em;font-family:Georgia,serif}
+    .seal-title{font-family:var(--serif);letter-spacing:.2em;font-size:16px;margin-top:22px}
+    .seal-sub{font-size:10px;letter-spacing:.28em;color:#c4d0db;margin-top:8px}
+    .seal-rule{width:58px;height:1px;background:var(--gold);margin:22px 0}
+
+    section{padding:110px 0}
+    .section-head{display:flex;justify-content:space-between;gap:36px;align-items:end;margin-bottom:48px}
+    .eyebrow{font-size:11px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
+    .section-title{font-family:var(--serif);font-size:43px;font-weight:500;margin:8px 0 0;color:var(--navy)}
+    .section-copy{max-width:520px;color:var(--muted);margin:0}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .panel{padding:34px 30px;border:1px solid var(--line);background:#fff;box-shadow:0 7px 24px rgba(7,26,49,.035)}
+    .panel h3{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--navy);margin:0 0 12px}
+    .panel p{margin:0;color:var(--muted)}
+
+    .spirit{background:var(--mist)}
+    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .principle{padding:32px;border-top:3px solid var(--gold);background:white;box-shadow:0 8px 24px rgba(7,26,49,.04)}
+    .num{color:var(--gold);font-family:var(--serif);font-size:30px}
+    .principle h3{color:var(--navy);font-size:17px;margin:8px 0}
+    .principle p{color:var(--muted);font-size:14px;margin:0}
+
+    .members{background:var(--navy);color:#f6f8fb}
+    .members .section-title{color:white}.members .section-copy{color:#bac7d4}
+    .member-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .member{padding:26px;border:1px solid rgba(255,255,255,.14);min-height:220px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));display:flex;flex-direction:column;justify-content:flex-end}
+    .member .avatar{height:76px;width:76px;border:1px solid rgba(223,202,148,.4);margin-bottom:auto;display:grid;place-items:center;color:var(--gold-soft);font-size:25px}
+    .member small{color:#aabaca;letter-spacing:.1em}.member strong{font-family:var(--serif);font-size:20px;font-weight:500;margin-top:5px}
+
+    .news{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .news article{background:white;border:1px solid var(--line);padding:30px;min-height:235px;transition:.25s}
+    .news article:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .date{font-size:11px;color:var(--gold);letter-spacing:.12em}.news h3{font-family:var(--serif);font-size:23px;font-weight:500;line-height:1.35;color:var(--navy)}.news p{color:var(--muted);font-size:14px}
+
+    .contact{background:linear-gradient(135deg,#eef3f7,#f9fbfc)}
+    .contact-box{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+    .contact h2{font-family:var(--serif);font-size:46px;font-weight:500;color:var(--navy);margin:8px 0 20px}
+    .contact p{color:var(--muted)}
+    footer{background:var(--navy-3);color:#acb9c8;padding:36px 0;border-top:1px solid rgba(223,202,148,.18);font-size:12px}
+    .footer-row{display:flex;justify-content:space-between;gap:20px}
+    .gold{color:var(--gold-soft)}
+
+    @media(max-width:900px){nav{display:none}.hero-grid,.split,.contact-box{grid-template-columns:1fr}.hero-visual{min-height:470px}.principles{grid-template-columns:1fr}.member-grid{grid-template-columns:repeat(2,1fr)}.news{grid-template-columns:1fr 1fr}.section-head{align-items:start;flex-direction:column}}
+    @media(max-width:600px){.nav{height:70px}.hero{padding-top:120px}.hero-visual{min-height:390px}.seal{width:88%}.section-title,.contact h2{font-size:35px}.member-grid,.news{grid-template-columns:1fr}.brand strong{font-size:13px}.brand span{font-size:9px}}
   </style>
 </head>
 <body>
-<header><div class="container nav">
-  <a class="brand" href="#top"><span class="mark">✦</span><div><strong>LES CLEFS D'OR TAIWAN</strong><span>台灣金鑰匙</span></div></a>
-  <nav><a href="#about">關於我們</a><a href="#spirit">金鑰匙精神</a><a href="#members">會員</a><a href="#news">最新消息</a><a href="#contact">聯絡我們</a></nav>
-</div></header>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="Les Clefs d'Or Taiwan">
+      <span class="mark">✦</span>
+      <div><strong>LES CLEFS D'OR TAIWAN</strong><span>台灣金鑰匙</span></div>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#about">關於我們</a>
+      <a href="#spirit">金鑰匙精神</a>
+      <a href="#members">會員</a>
+      <a href="#news">最新消息</a>
+      <a href="#contact">聯絡我們</a>
+    </nav>
+  </div>
+</header>
+
 <main id="top">
-<section class="hero"><div class="container hero-grid">
-  <div><div class="kicker">Les Clefs d'Or Taiwan</div><h1>為旅人開啟<br>每一扇門。</h1><p class="lead">台灣金鑰匙匯聚專業禮賓人員，以服務、專業與人情溫度，為旅客創造值得記憶的台灣體驗。</p><div class="actions"><a class="btn primary" href="#about">認識台灣金鑰匙</a><a class="btn" href="#members">認識會員</a></div></div>
-  <div class="hero-card" aria-label="Les Clefs d'Or Taiwan visual"></div>
-</div></section>
-<section id="about"><div class="container"><div class="section-head"><div><div class="eyebrow">About Us</div><div class="section-title">關於台灣金鑰匙</div></div><p class="section-copy">台灣金鑰匙致力於介紹國際禮賓專業、推動會員交流與經驗傳承，並持續連結台灣與全球 Les Clefs d'Or 社群。</p></div>
-  <div class="split"><div class="panel"><h3>國際視野</h3><p>Les Clefs d'Or 是國際性的飯店禮賓專業組織。台灣會員與世界各地同業保持交流，分享旅遊、文化、服務與在地資源。</p></div><div class="panel"><h3>專業與傳承</h3><p>金鑰匙不只是徽章，更是一份對服務專業與旅客承諾的象徵。我們重視會員之間的交流、學習與經驗傳承。</p></div></div>
-</div></section>
-<section id="spirit"><div class="container"><div class="section-head"><div><div class="eyebrow">Our Spirit</div><div class="section-title">金鑰匙精神</div></div><p class="section-copy">真正的 Concierge 不只提供資訊，更理解旅客、連結在地資源，並以專業判斷把不可能化為可能。</p></div>
-  <div class="principles"><div class="principle"><div class="num">01</div><h3>Service</h3><p>以真誠、細緻與尊重面對每一位旅客。</p></div><div class="principle"><div class="num">02</div><h3>Knowledge</h3><p>持續累積目的地、文化、餐飲、交通與生活的專業知識。</p></div><div class="principle"><div class="num">03</div><h3>Connection</h3><p>透過專業人脈與會員交流，為旅客建立最適合的連結。</p></div></div>
-</div></section>
-<section id="members" class="members"><div class="container"><div class="section-head"><div><div class="eyebrow">Our Members</div><div class="section-title">台灣金鑰匙會員</div></div><p class="section-copy">會員資訊將依組織及會員本人同意公開之內容呈現；本網站不公開會員所屬飯店，以避免造成營運上的困擾。</p></div>
-  <div class="member-grid"><div class="member"><div class="avatar">✦</div><small>Concierge</small><strong>會員資料準備中</strong></div><div class="member"><div class="avatar">✦</div><small>Concierge</small><strong>會員資料準備中</strong></div><div class="member"><div class="avatar">✦</div><small>Concierge</small><strong>會員資料準備中</strong></div><div class="member"><div class="avatar">✦</div><small>Concierge</small><strong>會員資料準備中</strong></div></div>
-</div></section>
-<section id="news"><div class="container"><div class="section-head"><div><div class="eyebrow">News & Events</div><div class="section-title">最新消息</div></div><p class="section-copy">分享台灣金鑰匙的組織活動、會員交流、培訓與國際連結。</p></div>
-  <div class="news"><article><div class="date">NEWS</div><h3>網站正式上線</h3><p>台灣金鑰匙官方資訊網站第一階段建置完成，更多組織與會員資訊將陸續更新。</p></article><article><div class="date">EVENTS</div><h3>活動資訊</h3><p>此區將用於發布組織活動與會員交流資訊。</p></article><article><div class="date">INTERNATIONAL</div><h3>國際交流</h3><p>此區將分享台灣會員與國際 Les Clefs d'Or 社群的交流動態。</p></article></div>
-</div></section>
-<section id="contact" class="contact"><div class="container contact-box"><div><div class="eyebrow">Contact</div><h2>與台灣金鑰匙聯繫</h2><p>如需了解組織、會員資格或相關活動，歡迎透過官方聯絡方式與我們聯繫。</p></div><div class="panel"><h3>Les Clefs d'Or Taiwan</h3><p>官方聯絡資訊將於網站正式版完成確認後更新。</p><p style="color:var(--muted);font-size:13px">目前網站為第一階段公開版本，部分內容仍在整理中。</p></div></div></section>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker">Les Clefs d'Or Taiwan</div>
+        <h1>為旅人開啟<br>台灣的每一扇門。</h1>
+        <p class="lead">專業、知識、連結與真誠的服務，是台灣金鑰匙為旅人帶來在地體驗的核心。從一座城市，到一次難忘的旅程，讓每一扇門都通往更好的台灣。</p>
+        <div class="actions">
+          <a class="btn primary" href="#about">認識台灣金鑰匙</a>
+          <a class="btn" href="#members">認識會員</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Les Clefs d'Or Taiwan visual">
+        <div class="seal">
+          <div class="seal-inner">
+            <div class="crossed">⚿⚿</div>
+            <div class="seal-rule"></div>
+            <div class="seal-title">LES CLEFS D'OR</div>
+            <div class="seal-sub">TAIWAN</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">About Us</div><div class="section-title">關於台灣金鑰匙</div></div>
+        <p class="section-copy">以國際視野連結台灣在地專業，介紹 Concierge 的價值、會員精神與經驗傳承。</p>
+      </div>
+      <div class="split">
+        <div class="panel"><h3>國際連結</h3><p>Les Clefs d'Or 是國際性的飯店禮賓專業組織。台灣會員透過國際交流，持續分享目的地知識、服務經驗與旅人的需求。</p></div>
+        <div class="panel"><h3>在地專業</h3><p>我們相信真正的 Concierge 不只是提供資訊，而是深入了解一座城市、建立可靠的人脈與資源，並以專業判斷為旅人找到適合的答案。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="spirit" class="spirit">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Our Spirit</div><div class="section-title">金鑰匙精神</div></div>
+        <p class="section-copy">國際總會網站所呈現的核心精神，強調 Concierge 是目的地的在地專家；台灣金鑰匙也以此作為專業交流與服務的基礎。</p>
+      </div>
+      <div class="principles">
+        <div class="principle"><div class="num">01</div><h3>Service</h3><p>以真誠、細緻與尊重面對每一位旅人，在細節裡建立信任。</p></div>
+        <div class="principle"><div class="num">02</div><h3>Knowledge</h3><p>持續累積城市、文化、餐飲、交通與生活的第一手知識。</p></div>
+        <div class="principle"><div class="num">03</div><h3>Connection</h3><p>透過會員交流與專業網絡，將旅人的需求連結至合適的在地資源。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="members" class="members">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Our Members</div><div class="section-title">台灣金鑰匙會員</div></div>
+        <p class="section-copy">會員資訊將依組織及會員本人同意公開之內容呈現；本網站不公開會員所屬飯店，以兼顧會員個人與飯店營運需求。</p>
+      </div>
+      <div class="member-grid">
+        <div class="member"><div class="avatar">✦</div><small>Concierge</small><strong>會員資料準備中</strong></div>
+        <div class="member"><div class="avatar">✦</div><small>Concierge</small><strong>會員資料準備中</strong></div>
+        <div class="member"><div class="avatar">✦</div><small>Concierge</small><strong>會員資料準備中</strong></div>
+        <div class="member"><div class="avatar">✦</div><small>Concierge</small><strong>會員資料準備中</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">News & Events</div><div class="section-title">最新消息</div></div>
+        <p class="section-copy">分享台灣金鑰匙的組織活動、會員交流、培訓與國際連結。</p>
+      </div>
+      <div class="news">
+        <article><div class="date">NEWS</div><h3>網站正式上線</h3><p>台灣金鑰匙官方資訊網站第一階段建置完成，更多組織與會員資訊將陸續更新。</p></article>
+        <article><div class="date">EVENTS</div><h3>活動資訊</h3><p>此區將用於發布組織活動與會員交流資訊。</p></article>
+        <article><div class="date">INTERNATIONAL</div><h3>國際交流</h3><p>此區將分享台灣會員與國際 Les Clefs d'Or 社群的交流動態。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container contact-box">
+      <div><div class="eyebrow">Contact</div><h2>與台灣金鑰匙聯繫</h2><p>如需了解組織、會員資格或相關活動，歡迎透過官方聯絡方式與我們聯繫。</p></div>
+      <div class="panel"><h3>Les Clefs d'Or Taiwan</h3><p>官方聯絡資訊將於網站正式版完成確認後更新。</p><p style="font-size:13px">目前網站為第一階段公開版本，部分內容仍在整理中。</p></div>
+    </div>
+  </section>
 </main>
-<footer><div class="container footer-row"><span>© Les Clefs d'Or Taiwan. All rights reserved.</span><span>Official Website · Taiwan</span></div></footer>
+
+<footer>
+  <div class="container footer-row"><span>© Les Clefs d'Or Taiwan. All rights reserved.</span><span class="gold">Official Website · Taiwan</span></div>
+</footer>
 </body>
 </html>
