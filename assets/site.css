@@ -47,3 +47,27 @@ section{padding:105px 0}.section-head{display:flex;justify-content:space-between
 .social-card-icon.instagram-mark svg{width:22px;height:22px}
 .social-card .btn{margin-top:18px;color:var(--navy);border-color:var(--navy)}
 .social-card .btn:hover{background:var(--navy);color:#fff}
+
+
+/* President's Message page */
+.president-intro{padding:96px 0 70px;background:#fff}
+.president-grid{display:grid;grid-template-columns:minmax(320px,.76fr) minmax(0,1.24fr);gap:74px;align-items:start}
+.president-photo-wrap{position:relative;padding:18px 18px 0 0}
+.president-photo-wrap:before{content:'';position:absolute;right:0;top:0;width:86%;height:92%;border:1px solid rgba(197,166,101,.5);z-index:0}
+.president-photo{position:relative;z-index:1;width:100%;max-width:520px;aspect-ratio:947/1013;object-fit:cover;display:block;box-shadow:0 18px 50px rgba(3,22,42,.13)}
+.president-caption{position:relative;z-index:2;background:var(--navy);color:#fff;margin:-40px 24px 0 24px;padding:22px 24px}
+.president-caption .role{display:block;color:var(--gold2);font-size:10px;letter-spacing:.24em;margin-bottom:7px}
+.president-caption strong{display:block;font:500 22px/1.35 var(--serif);letter-spacing:.06em}
+.president-copy .eyebrow{margin-bottom:10px}
+.president-copy h1{font:500 clamp(44px,5.5vw,70px)/1.08 var(--serif);color:var(--navy);margin:0 0 30px}
+.president-copy .lead{font-size:19px;color:#334b63;line-height:2;margin:0 0 28px}
+.president-copy blockquote{margin:34px 0;padding:24px 28px;border-left:3px solid var(--gold);background:var(--mist);color:var(--navy);font:500 25px/1.55 var(--serif)}
+.president-message{padding:0 0 110px}
+.president-message-inner{max-width:930px}
+.president-message p{font-size:17px;line-height:2.05;color:#475d72;margin:0 0 28px}
+.president-message p:last-child{margin-bottom:0}
+.president-signature{margin-top:48px;padding-top:22px;border-top:1px solid var(--line);color:var(--navy)}
+.president-signature strong{display:block;font:500 19px/1.5 var(--serif);letter-spacing:.04em}
+.president-signature span{display:block;margin-top:4px;color:var(--muted);font-size:13px}
+@media (max-width:900px){.president-grid{grid-template-columns:1fr;gap:48px}.president-photo{max-width:560px}.president-copy h1{font-size:48px}.president-message{padding-bottom:80px}}
+@media (max-width:620px){.president-intro{padding:72px 0 50px}.president-grid{gap:36px}.president-photo-wrap{padding:10px 10px 0 0}.president-caption{margin:-30px 12px 0 12px;padding:18px 20px}.president-copy h1{font-size:42px}.president-copy .lead{font-size:17px}.president-copy blockquote{font-size:21px;padding:20px 22px}.president-message p{font-size:16px;line-height:1.95}}

@@ -54,3 +54,14 @@
 - Instagram: https://www.instagram.com/lcdchinesetaipei/
 
 Social links are displayed in the site header, footer, homepage and contact page.
+
+
+### Current navigation
+- 首頁
+- 理事長的話
+- 關於我們
+- 金鑰匙精神
+- 會員
+- 最新消息
+- 國際網絡
+- 聯絡我們
