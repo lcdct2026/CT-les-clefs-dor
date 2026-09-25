@@ -47,3 +47,10 @@
 - 官網目前只製作中文內容；英文、日文等語言版本日後另行規劃。
 - `assets/lcd-tw-logo.png`：台灣分會正式 Logo，用於官網主要品牌識別。
 - `assets/uich-logo.jpg`：UICH Les Clefs d’Or 國際總會 Logo，僅用於國際總會、國際網絡及相關內容。
+
+
+## Official Social Media
+- Facebook: https://www.facebook.com/profile.php?id=100064441579381
+- Instagram: https://www.instagram.com/lcdchinesetaipei/
+
+Social links are displayed in the site header, footer, homepage and contact page.
