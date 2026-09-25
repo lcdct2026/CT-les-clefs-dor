@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ct-les-clefs-dor.pages.dev/sitemap.xml
