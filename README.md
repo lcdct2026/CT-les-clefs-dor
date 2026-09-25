@@ -39,3 +39,11 @@
 - 中文正式名稱：中華民國旅館金鑰匙協會
 - 英文正式名稱：Les Clefs d’Or Chinese Taipei
 - 網站對外正式名稱以以上兩者為準；「台灣」僅作為地理名稱使用，不作為本協會中文或英文正式名稱。
+
+
+## Official naming and logo rules
+- 中文正式名稱：中華民國旅館金鑰匙協會
+- 英文正式名稱：Les Clefs d’Or Chinese Taipei
+- 官網目前只製作中文內容；英文、日文等語言版本日後另行規劃。
+- `assets/lcd-tw-logo.png`：台灣分會正式 Logo，用於官網主要品牌識別。
+- `assets/uich-logo.jpg`：UICH Les Clefs d’Or 國際總會 Logo，僅用於國際總會、國際網絡及相關內容。
