@@ -160,3 +160,8 @@ section{padding:105px 0}.section-head{display:flex;justify-content:space-between
 .taiwan-video{display:block;width:100%;height:100%;min-height:0;border:0;background:#06172b}
 @media (max-width:900px){.service-friendship .section-head{margin-bottom:24px}.service-friendship-content{max-width:none}.taiwan-video-wrap{aspect-ratio:16/9}}
 @media (max-width:620px){.friendship-quote{font-size:31px}.friendship-tagline{font-size:19px}.friendship-core{font-size:15px}.taiwan-video-wrap{aspect-ratio:16/9}}
+
+/* Homepage community intro: keep the sentence on one line beside the heading on desktop. */
+.community-head{align-items:center}
+.community-head p{max-width:none;flex:1;text-align:right;white-space:nowrap;margin:0}
+@media (max-width:900px){.community-head{display:block}.community-head p{white-space:normal;text-align:left;margin-top:16px}}
