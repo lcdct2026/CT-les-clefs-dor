@@ -72,3 +72,5 @@ Community feed: the 協會動態 page uses a small Cloudflare Pages Function at 
 
 ## 協會動態自動更新
 The Community page uses a Cloudflare Pages Function at `/api/uich-feed` to load current UICH/Les Clefs d’Or items. It tries RSS/Atom first, then the public WordPress API, then the official UICH archive page as a graceful fallback. Results are cached to keep maintenance and external requests low.
+
+- Growth feed is a curated UICH Key Updates list (14 PDF editions) and excludes unrelated Training & Development posts.

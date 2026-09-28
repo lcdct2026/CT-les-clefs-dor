@@ -297,3 +297,8 @@ section{padding:105px 0}.section-head{display:flex;justify-content:space-between
 @media (max-width:900px){
   .community-links.rss-list a.rss-item.no-date{grid-template-columns:minmax(0,1fr) 20px}
 }
+
+.community-links.rss-training{max-height:none;overflow:visible}
+.community-links.rss-training .rss-item{padding:10px 0}
+.community-links.rss-training .rss-item-title{font-size:12px;line-height:1.45}
+@media (max-width:900px){.community-links.rss-training .rss-item-title{font-size:12px}}

@@ -70,7 +70,7 @@
         <div class="community-world-kicker">03 · GROWTH</div>
         <h3>Awards &amp; Professional Development</h3>
         <p>從國際總會的專業培訓、Key Updates 與教育發展，持續看見 Concierge 專業如何成長。</p>
-        <div class="community-links rss-list" data-rss-source="training"><div class="rss-status">正在載入最新內容…</div></div><div class="community-feed-note">Auto-updated from UICH</div>
+        <div class="community-links rss-list rss-training" data-rss-source="training" data-rss-limit="3"><div class="rss-status">正在載入最新內容…</div></div><div class="community-feed-note">Auto-updated from UICH</div>
       </article>
     </div>
   </div>
@@ -139,7 +139,8 @@
       const res = await fetch('/api/uich-feed?source=' + encodeURIComponent(source), { headers: { 'Accept': 'application/json' } });
       if (!res.ok) throw new Error('Feed request failed');
       const data = await res.json();
-      const items = Array.isArray(data.items) ? data.items.slice(0,3) : [];
+      const limit = Number(list.dataset.rssLimit || 3);
+      const items = Array.isArray(data.items) ? data.items.slice(0, limit) : [];
       if (!items.length) throw new Error('No feed items');
       list.innerHTML = items.map(item => {
         const dateText = fmt(item.date);

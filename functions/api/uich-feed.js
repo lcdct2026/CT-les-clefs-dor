@@ -50,29 +50,14 @@ const SOURCES = {
     ]
   },
   training: {
-    feedUrls: [
-      'https://www.lesclefsdor.org/news_categories/training-and-development/feed/'
-    ],
+    // Use the official UICH Training & Development archive as the live source.
+    // Only keep posts whose titles are "Your Les Clefs d’Or Key Updates".
+    feedUrls: [],
     pages: [
       'https://www.lesclefsdor.org/news_categories/training-and-development/'
     ],
-    categoryPath: '/news/',
-    include: (title) => !!title,
-    exclude: (title) => /hello world/i.test(title),
-    fallback: [
-      {
-        title: 'From the desk of the President',
-        link: 'https://www.lesclefsdor.org/news/key_updates/'
-      },
-      {
-        title: 'Your Les Clefs d’Or Key Updates – Issue 11',
-        link: 'https://www.lesclefsdor.org/news/key_updates/'
-      },
-      {
-        title: 'Your Les Clefs d’Or Key Updates – Issue 10',
-        link: 'https://www.lesclefsdor.org/news/key_updates/'
-      }
-    ]
+    include: (title) => /your\s+les\s+clefs\s+d(?:[’\'o]|or)r?\s+key\s+updates/i.test(title.replace(/['’]/g, '')),
+    exclude: () => false
   }
 };
 
@@ -130,6 +115,7 @@ function parseFeed(xml, baseUrl) {
 }
 
 function parsePage(html, baseUrl, config) {
+  const normalizedInclude = (title) => config.include(title.replace(/[’'`]/g, '').replace(/\s+/g, ' ').trim());
   const out = [];
   const seen = new Set();
   const re = /<a[^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
@@ -137,7 +123,7 @@ function parsePage(html, baseUrl, config) {
   while ((m = re.exec(html))) {
     const title = stripTags(m[2]);
     if (!title || title.length < 12 || title.length > 180) continue;
-    if (!config.include(title) || config.exclude(title)) continue;
+    if (!normalizedInclude(title) || config.exclude(title)) continue;
     const link = absoluteUrl(m[1], baseUrl);
     if (!link || !link.startsWith('https://www.lesclefsdor.org/')) continue;
     if (seen.has(link)) continue;
@@ -164,6 +150,7 @@ function unique(items, config, limit = 3) {
   }
   return out;
 }
+
 
 async function fetchText(url) {
   const r = await fetch(url, {
