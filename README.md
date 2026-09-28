@@ -65,3 +65,10 @@ Social links are displayed in the site header, footer, homepage and contact page
 - 最新消息
 - 國際網絡
 - 聯絡我們
+
+
+Community feed: the 協會動態 page uses a small Cloudflare Pages Function at /api/uich-feed. It attempts official UICH RSS feeds first, then gracefully falls back to the official UICH page if a feed endpoint is unavailable. Results are cached for one hour.
+
+
+## 協會動態自動更新
+The Community page uses a Cloudflare Pages Function at `/api/uich-feed` to load current UICH/Les Clefs d’Or items. It tries RSS/Atom first, then the public WordPress API, then the official UICH archive page as a graceful fallback. Results are cached to keep maintenance and external requests low.
