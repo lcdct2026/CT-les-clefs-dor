@@ -286,3 +286,14 @@ section{padding:105px 0}.section-head{display:flex;justify-content:space-between
 @media (max-width:900px){
   .community-links.rss-list a.rss-item{grid-template-columns:76px minmax(0,1fr) 20px}
 }
+
+
+/* Community feed layout refinement v35 */
+.community-world-card .community-links.rss-list{margin-top:10px}
+.community-world-card .community-feed-note{margin-top:auto;padding-top:18px}
+.community-links.rss-list a.rss-item.no-date{grid-template-columns:minmax(0,1fr) 22px}
+.community-links.rss-list a.rss-item.no-date .rss-item-title{grid-column:1}
+.community-links.rss-list a.rss-item.no-date .rss-item-arrow{grid-column:2}
+@media (max-width:900px){
+  .community-links.rss-list a.rss-item.no-date{grid-template-columns:minmax(0,1fr) 20px}
+}

@@ -141,12 +141,15 @@
       const data = await res.json();
       const items = Array.isArray(data.items) ? data.items.slice(0,3) : [];
       if (!items.length) throw new Error('No feed items');
-      list.innerHTML = items.map(item => `
-        <a class="rss-item" href="${esc(item.link)}" rel="noopener noreferrer" target="_blank">
-          <span class="rss-item-date">${esc(fmt(item.date))}</span>
+      list.innerHTML = items.map(item => {
+        const dateText = fmt(item.date);
+        const cls = dateText ? 'rss-item' : 'rss-item no-date';
+        return `<a class="${cls}" href="${esc(item.link)}" rel="noopener noreferrer" target="_blank">
+          ${dateText ? `<span class="rss-item-date">${esc(dateText)}</span>` : ''}
           <span class="rss-item-title">${esc(item.title)}</span>
           <span class="rss-item-arrow">↗</span>
-        </a>`).join('');
+        </a>`;
+      }).join('');
     } catch (e) {
       const status = list.querySelector('.rss-status');
       if (status) status.textContent = '最新內容請見 UICH 官方網站。';
