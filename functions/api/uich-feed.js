@@ -68,11 +68,11 @@ function textBetween(block, tags) {
 function linkFromItem(block) {
   let m = block.match(/<link[^>]+href=["']([^"']+)["'][^>]*>/i);
   if (m) return m[1].trim();
-  m = block.match(/<link[^>]*>([\\s\\S]*?)<\\/link>/i);
+  m = block.match(/<link[^>]*>([\s\S]*?)<\/link>/i);
   return m ? stripTags(decode(m[1])) : '';
 }
 function parseFeed(xml) {
-  const blocks = xml.match(/<item(?:\\s[^>]*)?>[\\s\\S]*?<\\/item>/gi) || xml.match(/<entry(?:\\s[^>]*)?>[\\s\\S]*?<\\/entry>/gi) || [];
+  const blocks = xml.match(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>/gi) || xml.match(/<entry(?:\s[^>]*)?>[\s\S]*?<\/entry>/gi) || [];
   return blocks.map(block => ({
     title: textBetween(block, ['title']),
     link: linkFromItem(block) || textBetween(block, ['link']),
