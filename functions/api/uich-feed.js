@@ -49,29 +49,28 @@ const SOURCES = {
       }
     ]
   },
-  awards: {
+  training: {
     feedUrls: [
-      'https://www.lesclefsdor.org/news_categories/training-and-development/feed/',
-      'https://www.lesclefsdor.org/about/awards/feed/'
+      'https://www.lesclefsdor.org/news_categories/training-and-development/feed/'
     ],
     pages: [
-      'https://www.lesclefsdor.org/about/awards/',
       'https://www.lesclefsdor.org/news_categories/training-and-development/'
     ],
-    include: (title) => /award|training|development|education|key updates/i.test(title),
+    categoryPath: '/news/',
+    include: (title) => !!title,
     exclude: (title) => /hello world/i.test(title),
     fallback: [
       {
-        title: '2026 Young Leaders Award – Unwana van der Werk',
-        link: 'https://www.lesclefsdor.org/about/awards/'
+        title: 'From the desk of the President',
+        link: 'https://www.lesclefsdor.org/news/key_updates/'
       },
       {
-        title: 'Your Les Clefs d’Or Key Updates – Second Quarter 2026',
-        link: 'https://www.lesclefsdor.org/news_categories/training-and-development/'
+        title: 'Your Les Clefs d’Or Key Updates – Issue 11',
+        link: 'https://www.lesclefsdor.org/news/key_updates/'
       },
       {
-        title: '2026 Young Leaders Award – Nominees',
-        link: 'https://www.lesclefsdor.org/about/awards/'
+        title: 'Your Les Clefs d’Or Key Updates – Issue 10',
+        link: 'https://www.lesclefsdor.org/news/key_updates/'
       }
     ]
   }
@@ -142,6 +141,8 @@ function parsePage(html, baseUrl, config) {
     const link = absoluteUrl(m[1], baseUrl);
     if (!link || !link.startsWith('https://www.lesclefsdor.org/')) continue;
     if (seen.has(link)) continue;
+    // For the Training & Development category, only keep genuine article/archive links.
+    if (config.categoryPath && !link.includes(config.categoryPath)) continue;
     seen.add(link);
     out.push({ title, link });
     if (out.length >= 6) break;
