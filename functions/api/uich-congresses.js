@@ -2,9 +2,9 @@ const UICH_HOME = 'https://www.lesclefsdor.org/';
 const UICH_HISTORY = 'https://www.lesclefsdor.org/about/history/';
 
 const FALLBACK = [
-  { year: 2026, city: 'Sydney', country: 'Australia', edition: '70th', dates: '12–17 April 2026', link: UICH_HISTORY },
-  { year: 2027, city: 'Bangkok', country: 'Thailand', edition: '71st', dates: '16–21 April 2027', link: 'https://congress.lesclefsdor.org/' },
-  { year: 2028, city: 'Rio de Janeiro', country: 'Brazil', edition: '72nd', dates: '2–7 April 2028', link: UICH_HOME }
+  { year: 2026, city: 'Sydney', country: 'Australia', edition: '70th', dates: '12–17 April 2026'},
+  { year: 2027, city: 'Bangkok', country: 'Thailand', edition: '71st', dates: '16–21 April 2027'},
+  { year: 2028, city: 'Rio de Janeiro', country: 'Brazil', edition: '72nd', dates: '2–7 April 2028'}
 ];
 
 const HEADERS = {
@@ -46,7 +46,7 @@ function extractFromHome(text) {
   let m;
   while ((m = re.exec(text))) {
     const year = Number(m[7]);
-    out.push({ year, city: m[1].trim().replace(/,$/, ''), country: m[2].trim(), edition: ordinal(m[3]), dates: `${m[4]}–${m[5]} ${m[6]} ${m[7]}`, link: year === 2027 ? 'https://congress.lesclefsdor.org/' : UICH_HOME });
+    out.push({ year, city: m[1].trim().replace(/,$/, ''), country: m[2].trim(), edition: ordinal(m[3]), dates: `${m[4]}–${m[5]} ${m[6]} ${m[7]}`});
   }
   return out;
 }
@@ -64,7 +64,7 @@ function extractFromHistory(text) {
     if (year < 2026) continue;
     const city = m[2].trim();
     if (!city || /International|Learn More|Headquarters/i.test(city)) continue;
-    out.push({ year, city, country: '', edition: year === 2026 ? '70th' : '', dates: '', link: UICH_HISTORY });
+    out.push({ year, city, country: '', edition: year === 2026 ? '70th' : '', dates: ''});
   }
   return out;
 }
@@ -74,7 +74,7 @@ function merge(found) {
   for (const x of found) {
     if (!x.year) continue;
     const current = byYear.get(x.year) || {};
-    byYear.set(x.year, { ...current, ...x, country: x.country || current.country, edition: x.edition || current.edition, dates: x.dates || current.dates, link: x.link || current.link });
+    byYear.set(x.year, { ...current, ...x, country: x.country || current.country, edition: x.edition || current.edition, dates: x.dates || current.dates});
   }
   return [...byYear.values()].filter(x => x.year >= 2026).sort((a,b) => b.year - a.year).slice(0,3).sort((a,b) => a.year - b.year);
 }
