@@ -8,7 +8,7 @@
 - `spirit.html` 金鑰匙精神與專業
 - `members.html` 會員資訊
 - `news.html` 最新消息
-- `international.html` 國際網絡
+- `congress.html` 國際大會
 - `contact.html` 聯絡我們
 - `assets/site.css` 全站樣式
 - `assets/site.js` 全站互動
@@ -46,7 +46,7 @@
 - 英文正式名稱：Les Clefs d’Or Chinese Taipei
 - 官網目前只製作中文內容；英文、日文等語言版本日後另行規劃。
 - `assets/lcd-tw-logo.png`：台灣分會正式 Logo，用於官網主要品牌識別。
-- `assets/uich-logo.jpg`：UICH Les Clefs d’Or 國際總會 Logo，僅用於國際總會、國際網絡及相關內容。
+- `assets/uich-logo.jpg`：UICH Les Clefs d’Or 國際總會 Logo，僅用於國際總會、國際總會與國際大會相關內容及相關內容。
 
 
 ## Official Social Media
@@ -63,7 +63,7 @@ Social links are displayed in the site header, footer, homepage and contact page
 - 金鑰匙精神
 - 會員
 - 最新消息
-- 國際網絡
+- 國際總會與國際大會相關內容
 - 聯絡我們
 
 
