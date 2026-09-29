@@ -8,7 +8,7 @@
 - `spirit.html` 金鑰匙精神與專業
 - `members.html` 會員資訊
 - `news.html` 最新消息
-- `congress.html` 國際大會
+- `協會動態頁內的 International Congress 區塊` 國際大會
 - `contact.html` 聯絡我們
 - `assets/site.css` 全站樣式
 - `assets/site.js` 全站互動

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="zh-Hant"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="中華民國旅館金鑰匙協會協會動態、官方社群與全球 Les Clefs d’Or Concierge 內容入口。" name="description"/><title>協會動態｜Les Clefs d'Or Chinese Taipei</title><meta content="中華民國旅館金鑰匙協會｜Les Clefs d’Or Chinese Taipei" property="og:site_name"/><meta content="協會動態｜Les Clefs d'Or Chinese Taipei" property="og:title"/><meta content="中華民國旅館金鑰匙協會協會動態、官方社群與全球 Les Clefs d’Or Concierge 內容入口。" property="og:description"/><meta content="website" property="og:type"/><meta content="https://ct-les-clefs-dor.pages.dev/assets/lcd-tw-logo.png?v=20260925" property="og:image"/><meta content="中華民國旅館金鑰匙協會／Les Clefs d’Or Chinese Taipei" property="og:image:alt"/><meta content="https://ct-les-clefs-dor.pages.dev/news.html" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><link href="assets/site.css" rel="stylesheet"/><link href="assets/lcd-tw-logo.png" rel="icon" type="image/png"/></head><body><div class="topline"><div class="wrap"><span>LES CLEFS D’OR CHINESE TAIPEI</span><span>IN SERVICE THROUGH FRIENDSHIP</span></div></div>
-<header><div class="wrap nav"><a class="brand" href="index.html"><img alt="中華民國旅館金鑰匙協會／Les Clefs d’Or Chinese Taipei" class="brand-logo" src="assets/lcd-tw-logo.png"/><span class="brand-text"><strong>LES CLEFS D’OR CHINESE TAIPEI</strong><span>中華民國旅館金鑰匙協會</span></span></a><nav><a href="index.html">首頁</a><a href="president.html">理事長的話</a><a href="about.html">關於協會</a><a href="spirit.html">金鑰匙精神</a><a href="members.html">會員</a><a href="news.html">協會動態</a><a href="congress.html">國際大會</a><a href="contact.html">聯絡我們</a></nav><button aria-label="開啟選單" class="menu">☰</button></div></header>
+<header><div class="wrap nav"><a class="brand" href="index.html"><img alt="中華民國旅館金鑰匙協會／Les Clefs d’Or Chinese Taipei" class="brand-logo" src="assets/lcd-tw-logo.png"/><span class="brand-text"><strong>LES CLEFS D’OR CHINESE TAIPEI</strong><span>中華民國旅館金鑰匙協會</span></span></a><nav><a href="index.html">首頁</a><a href="president.html">理事長的話</a><a href="about.html">關於協會</a><a href="spirit.html">金鑰匙精神</a><a href="members.html">會員</a><a href="news.html">協會動態</a><a href="contact.html">聯絡我們</a></nav><button aria-label="開啟選單" class="menu">☰</button></div></header>
 <main>
 <section class="page-hero">
   <div class="wrap">
@@ -75,6 +75,24 @@
     </div>
   </div>
 </section>
+
+<section class="community-congress band">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">CONGRESSES</div>
+        <h2 class="title">International Congress</h2>
+      </div>
+      <p>國際大會是會員學習、交流、建立友誼與推動組織發展的重要年度聚會。</p>
+    </div>
+    <div class="grid3 congress-grid" id="congress-list">
+      <div class="card congress-card"><div class="rss-status">正在載入最新國際大會…</div></div>
+      <div class="card congress-card"><div class="rss-status">正在載入…</div></div>
+      <div class="card congress-card"><div class="rss-status">正在載入…</div></div>
+    </div>
+    <p class="source-note">資料來源：<a href="https://www.lesclefsdor.org/" rel="noopener noreferrer" target="_blank">UICH Les Clefs d’Or International ↗</a></p>
+  </div>
+</section>
 </main>
 <footer class="footer"><div class="wrap">
 <div class="footer-identity">
@@ -109,7 +127,7 @@
 <p><a href="spirit.html">金鑰匙精神</a></p>
 <p><a href="members.html">會員</a></p>
 <p><a href="news.html">協會動態</a></p>
-<p><a href="congress.html">國際大會</a></p>
+<p></p>
 <p><a href="contact.html">聯絡我們</a></p>
 </div>
 </div>
@@ -156,6 +174,26 @@
       if (status) status.textContent = '最新內容請見 UICH 官方網站。';
     }
   });
+})();
+</script>
+<script>
+(function(){
+  const root = document.getElementById('congress-list');
+  if(!root) return;
+  const fallback = [
+    {year:2026,city:'Sydney',country:'Australia',edition:'70th',dates:'12–17 April 2026',link:'https://www.lesclefsdor.org/about/history/'},
+    {year:2027,city:'Bangkok',country:'Thailand',edition:'71st',dates:'16–21 April 2027',link:'https://congress.lesclefsdor.org/'},
+    {year:2028,city:'Rio de Janeiro',country:'Brazil',edition:'72nd',dates:'2–7 April 2028',link:'https://www.lesclefsdor.org/'}
+  ];
+  const esc=(s)=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function render(items){
+    root.innerHTML = items.slice(0,3).map(x=>`<article class="card congress-card reveal"><div class="congress-year">${esc(x.year)} · ${esc(x.city)}</div><h3>${esc(x.edition)} UICH International Congress</h3><p>${esc(x.dates)}<br/>${esc(x.country)}</p><a class="btn" href="${esc(x.link)}" rel="noopener noreferrer" target="_blank">前往官方資訊 ↗</a></article>`).join('');
+    requestAnimationFrame(()=>root.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('show'),80*i)));
+  }
+  fetch('/api/uich-congresses',{headers:{Accept:'application/json'}})
+    .then(r=>{if(!r.ok) throw new Error('request failed'); return r.json();})
+    .then(d=>{const items=Array.isArray(d.items)&&d.items.length?d.items:fallback; render(items);})
+    .catch(()=>render(fallback));
 })();
 </script>
 </body></html>
