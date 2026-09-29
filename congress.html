@@ -15,9 +15,16 @@
   {year:2027,city:'Bangkok',country:'Thailand',edition:'71st',dates:'16–21 April 2027'},
   {year:2028,city:'Rio de Janeiro',country:'Brazil',edition:'72nd',dates:'2–7 April 2028'}
  ];
- function render(items){ root.innerHTML=items.slice(0,3).map(x=>`<article class="card congress-card reveal"><div class="congress-year">${esc(x.year)} · ${esc(x.city)}</div><h3>${esc(x.edition)} UICH International Congress</h3><p>${esc(x.dates)}<br/>${esc(x.country)}</p></article>`).join('');
-  requestAnimationFrame(()=>document.querySelectorAll('#congress-list .reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('show'),80*i)));
- }
+ function render(items) {
+      root.innerHTML = items.slice(0,3).map(x => `<article class="card congress-card reveal"><div class="congress-year">${esc(x.year)} · ${esc(x.city)}</div><h3>${esc(x.edition)} UICH International Congress</h3><p>${esc(x.dates)}<br/>${esc(x.country)}</p></article>`).join('');
+      root.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('show'),80+i*60));
+    }
+
+    // Congress cards are information-only: never allow navigation from this area.
+    root.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    }, true);
  fetch('/api/uich-congresses',{headers:{Accept:'application/json'}}).then(r=>{if(!r.ok)throw new Error('request failed');return r.json()}).then(d=>{const items=Array.isArray(d.items)&&d.items.length?d.items:fallback;render(items)}).catch(()=>render(fallback));
 })();
 </script></body></html>
