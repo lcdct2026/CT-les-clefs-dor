@@ -306,3 +306,36 @@ section{padding:105px 0}.section-head{display:flex;justify-content:space-between
 .congress-grid{align-items:stretch}.congress-card{display:flex;flex-direction:column;min-height:310px}.congress-year{font:500 28px/1.2 var(--serif);color:var(--navy);margin-bottom:14px}.congress-card h3{font:500 24px/1.35 var(--serif);margin:0 0 12px}.congress-card p{color:var(--muted);margin:0;line-height:1.8}.congress-card .btn{margin-top:auto;align-self:flex-start}.congress-card .rss-status{color:var(--muted)}
 @media (max-width:900px){.congress-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:620px){.congress-grid{grid-template-columns:1fr}.congress-card{min-height:0}.congress-year{font-size:25px}}
+
+
+/* Mobile members photo fix — mobile only; Desktop remains unchanged. */
+@media (max-width:620px){
+  .directory-card,
+  .directory-card-excom{
+    grid-template-columns:110px minmax(0,1fr);
+    align-items:start;
+    padding:15px;
+    gap:16px;
+  }
+
+  .directory-photo{
+    width:110px;
+    align-self:start;
+  }
+
+  .directory-photo .member-photo{
+    width:110px;
+    height:138px;
+    aspect-ratio:auto;
+    object-fit:cover;
+    object-position:center top;
+  }
+
+  .hotel-group-members .directory-card{
+    grid-template-columns:110px minmax(0,1fr);
+  }
+
+  .hotel-group-members .directory-photo{
+    width:110px;
+  }
+}
