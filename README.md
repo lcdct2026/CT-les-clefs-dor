@@ -7,9 +7,7 @@
 - `about.html` 關於中華民國旅館金鑰匙協會
 - `spirit.html` 金鑰匙精神與專業
 - `members.html` 會員資訊
-- `news.html` 最新消息
-- `協會動態頁內的 International Congress 區塊` 國際大會
-- `contact.html` 聯絡我們
+- `news.html` 協會動態（含 International Congress 區塊）
 - `assets/site.css` 全站樣式
 - `assets/site.js` 全站互動
 - `data/README.md` 內容維護說明
@@ -46,31 +44,28 @@
 - 英文正式名稱：Les Clefs d’Or Chinese Taipei
 - 官網目前只製作中文內容；英文、日文等語言版本日後另行規劃。
 - `assets/lcd-tw-logo.png`：台灣分會正式 Logo，用於官網主要品牌識別。
-- `assets/uich-logo.jpg`：UICH Les Clefs d’Or 國際總會 Logo，僅用於國際總會、國際總會與國際大會相關內容及相關內容。
+- `assets/uich-logo.png`：UICH Les Clefs d’Or 國際總會 Logo，用於國際總會與相關內容。
 
 
 ## Official Social Media
 - Facebook: https://www.facebook.com/profile.php?id=100064441579381
 - Instagram: https://www.instagram.com/lcdchinesetaipei/
 
-Social links are displayed in the site header, footer, homepage and contact page.
+Social links are displayed in the 協會動態 page and footer.
 
 
 ### Current navigation
 - 首頁
 - 理事長的話
-- 關於我們
+- 關於協會
 - 金鑰匙精神
 - 會員
-- 最新消息
+- 協會動態
 - 國際總會與國際大會相關內容
-- 聯絡我們
-
-
-Community feed: the 協會動態 page uses a small Cloudflare Pages Function at /api/uich-feed. It attempts official UICH RSS feeds first, then gracefully falls back to the official UICH page if a feed endpoint is unavailable. Results are cached for one hour.
 
 
 ## 協會動態自動更新
-The Community page uses a Cloudflare Pages Function at `/api/uich-feed` to load current UICH/Les Clefs d’Or items. It tries RSS/Atom first, then the public WordPress API, then the official UICH archive page as a graceful fallback. Results are cached to keep maintenance and external requests low.
+The 協會動態 page uses a Cloudflare Pages Function at `/api/uich-feed` to load current UICH/Les Clefs d’Or items. It uses official UICH sources and caches results to keep maintenance and external requests low.
 
-- Growth feed is a curated UICH Key Updates list (14 PDF editions) and excludes unrelated Training & Development posts.
+- Growth feed selects the latest three items matching `Your Les Clefs d’Or Key Updates` from the UICH Training & Development archive.
+- International Congress uses `/api/uich-congresses` to load the latest three congress entries.
